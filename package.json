@@ -1,0 +1,23 @@
+{
+  "name": "trendobot",
+  "version": "1.0.0",
+  "description": "\"# 2017-mogilev-cho\" \r \"# 2017-mogilev-cho\"",
+  "main": "index.js",
+  "dependencies": {
+    "micro-bot": "^1.2.0",
+    "telegraf": "^3.6.7"
+  },
+  "devDependencies": {
+    "micro-bot": "^1.2.0",
+    "telegraf": "^3.6.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "micro-bot -t 375464631:AAFxcfWfIamyDI9zlOI1ZHqsYNkVeUsCxrM",
+    "start": "micro-bot -t 375464631:AAFxcfWfIamyDI9zlOI1ZHqsYNkVeUsCxrM"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EPAMHackathons/2017-mogilev-cho.git"
+  }
+}
