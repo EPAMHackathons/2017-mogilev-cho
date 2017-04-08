@@ -7,11 +7,29 @@ const app = new Telegraf('375464631:AAFxcfWfIamyDI9zlOI1ZHqsYNkVeUsCxrM')
 
 app.command('start', (ctx) => {
     console.log('start', ctx.from)
-    ctx.reply('Welcome!')
+    ctx.reply(msg.start)
+})
+
+
+app.command('search', (ctx) => {
+    console.log('search', ctx.from)
+    bot.search(ctx.message.text)
+})
+
+app.command('stop-trend', (ctx) => {
+    console.log('stop-trend', ctx.from)
+    bot.stopTrend(ctx.message.text)
 })
 
 app.hears('hi', (ctx) => ctx.reply('Hey there!'))
 
 app.on('sticker', (ctx) => ctx.reply('👍'))
+
+app.on('message', (ctx) => {
+    var resp = bot.analyze(ctx.message.text)
+    if (resp.hasReply) {
+        ctx.reply(resp.text)
+    }
+});
 
 app.startPolling()
