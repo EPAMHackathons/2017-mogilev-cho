@@ -15,18 +15,28 @@ const service = {
         const results = tweets
             //.filter((country) => country.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
             .map((tweet) => {
+                // return {
+                //     id: tweet.id,
+                //     title: tweet.text,
+                //     type: 'article',
+                //     thumb_url: tweet.imageUrl,
+                //     thumb_width: 100,
+                //     thumb_height: 150,
+                //     input_message_content: {
+                //         message_text: `test ${tweet.text} test [${tweet.text}](${tweet.url})`,
+                //         parse_mode: 'Markdown'
+                //     }
+                //}
                 return {
                     id: tweet.id,
                     title: tweet.text,
                     type: 'article',
-                    thumb_url: tweet.imageUrl,
-                    thumb_width: 100,
-                    thumb_height: 150,
                     input_message_content: {
-                        message_text: `${tweet.text} code: *${tweet.url}*`,
+                        message_text: `${tweet.text} code: *${tweet.text}*`,
                         parse_mode: 'Markdown'
                     }
                 }
+
             })
         return results;
     }
