@@ -1,18 +1,11 @@
 const twit = require('./twitter-client')
 var _ = require('underscore');
 
-function toUnicode(text) {
-    var result = "";
-    for (var i = 0; i < text.length; i++) {
-        result += "\\u" + ("000" + text[i].charCodeAt(0).toString(16)).substr(-4);
-    }
-    return result;
-}
 const service = {
     search: function(text, callback) {
 
         twit.searchTerm(text, function(data) {
-            console.log(data);
+            //console.log(data);
             if (data && data.statuses && data.statuses.length > 0) {
                 //console.log(data.statuses);
                 var firstArray = data.statuses;

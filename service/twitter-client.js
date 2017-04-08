@@ -29,10 +29,10 @@ var twitter = {
             function(e, data, res) {
                 if (e) {
                     console.error(e);
-                    console.log(data);
+                    //console.log(data);
                     callback(null);
                 } else {
-                    console.log(data);
+                    //console.log(data);
                     callback(JSON.parse(data));
                 }
             });
