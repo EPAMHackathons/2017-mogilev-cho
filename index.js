@@ -2,6 +2,7 @@ const Telegraf = require('telegraf')
 const msg = require('./messages')
 
 const bot = require('./service/bot-engine')
+const inlineSearch = require('./service/inline-search')
 
 const app = new Telegraf('375464631:AAFxcfWfIamyDI9zlOI1ZHqsYNkVeUsCxrM')
 
@@ -16,14 +17,21 @@ app.command('search', (ctx) => {
     bot.search(ctx.message.text)
 })
 
-app.command('stop-trend', (ctx) => {
-    console.log('stop-trend', ctx.from)
+app.command('bantrend', (ctx) => {
+    console.log('bantrend', ctx.from)
     bot.stopTrend(ctx.message.text)
 })
 
-app.hears('hi', (ctx) => ctx.reply('Hey there!'))
+//app.hears('hi', (ctx) => ctx.reply('Hey there!'))
 
-app.on('sticker', (ctx) => ctx.reply('👍'))
+//app.on('sticker', (ctx) => ctx.reply('👍'))
+
+app.on('inline_query', (ctx) => {
+    const query = ctx.inlineQuery.query || ''
+
+    var results = inlineSearch.search(query);
+    return ctx.answerInlineQuery(results)
+})
 
 app.on('message', (ctx) => {
     var resp = bot.analyze(ctx.message.text)
