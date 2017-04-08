@@ -23,16 +23,16 @@ app.command('bantrend', (ctx) => {
 })
 
 //app.hears('hi', (ctx) => ctx.reply('Hey there!'))
-
 //app.on('sticker', (ctx) => ctx.reply('👍'))
 
 app.on('inline_query', (ctx) => {
     const query = ctx.inlineQuery.query || ''
 
-    var results = inlineSearch.search(query);
-    console.log('search twiter', results);
+    //console.log('search twiter', results);
+    inlineSearch.search(query, function(results) {
+        return ctx.answerInlineQuery(results);
+    });
 
-    return ctx.answerInlineQuery(results);
 })
 
 app.on('message', (ctx) => {
