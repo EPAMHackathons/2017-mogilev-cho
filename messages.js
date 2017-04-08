@@ -1,4 +1,8 @@
 const start = `
+на старт! внимание! марш!
+`
+
+const hello = `
 
 дратути!
 
@@ -22,4 +26,4 @@ const intros = [
     '{}? Я кое-что слышал об этом \n'
 ]
 
-module.exports = { help, start, intros }
+module.exports = { help, hello, start, intros }

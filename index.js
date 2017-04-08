@@ -22,7 +22,7 @@ app.command('bantrend', (ctx) => {
     bot.stopTrend(ctx.message.text)
 })
 
-//app.hears('hi', (ctx) => ctx.reply('Hey there!'))
+app.hears(/кто это(.+)/, (ctx) => ctx.reply(msg.hello));
 //app.on('sticker', (ctx) => ctx.reply('👍'))
 
 app.on('inline_query', (ctx) => {
