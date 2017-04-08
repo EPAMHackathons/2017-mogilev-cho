@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "micro-bot": "^1.2.0",
-    "telegraf": "^3.6.7"
+    "telegraf": "^3.6.7",
+    "twitter-node-client": "0.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
