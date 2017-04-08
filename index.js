@@ -30,7 +30,9 @@ app.on('inline_query', (ctx) => {
     const query = ctx.inlineQuery.query || ''
 
     var results = inlineSearch.search(query);
-    return ctx.answerInlineQuery(results)
+    console.log('search twiter', results);
+
+    return ctx.answerInlineQuery(results);
 })
 
 app.on('message', (ctx) => {
