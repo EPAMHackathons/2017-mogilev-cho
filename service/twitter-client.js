@@ -20,6 +20,16 @@ var twitter = {
                 if (e) console.error(e);
                 callback(JSON.parse(data));
             });
+    },
+    searchTerm: function(queryText, callback) {
+        oauth.get(
+            'https://api.twitter.com/1.1/search/tweets.json?q=' + queryText,
+            '22006510-BspwJ9QSOoLMHE0QRbveplcaIm0sEcxYvrdte5Ltr', //test user token
+            'tf0ARtrwT8yLviXWHpEb63mhFvGxCV7OejmbGiV0Ma0x6', //test user secret
+            function (e, data, res){
+                if (e) console.error(e);
+                callback(JSON.parse(data));
+            });
     }
 }
 
