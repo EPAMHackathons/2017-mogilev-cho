@@ -4,11 +4,12 @@
   "description": "\"# 2017-mogilev-cho\" \r \"# 2017-mogilev-cho\"",
   "main": "index.js",
   "dependencies": {
-    "micro-bot": "^1.2.0",
-    "telegraf": "^3.6.7"
+    "http": "0.0.0",
+    "oauth": "^0.9.15",
+    "telegraf": "^3.6.7",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "micro-bot": "^1.2.0",
     "telegraf": "^3.6.7",
     "twitter-node-client": "0.0.6"
   },
