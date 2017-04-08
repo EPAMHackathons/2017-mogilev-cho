@@ -1,4 +1,5 @@
 const twit = require('./twitter-client')
+const msg = require('../messages')
 var _ = require('underscore');
 
 var trends = null;
@@ -14,12 +15,20 @@ twit.getTrends(function(data) {
     }
 });
 
+function buildMessage(topic, message) {
+    var introText = msg.intros[_.random(0, msg.intros.length-1)];
+    if (introText.includes('{}')) {
+        introText = introText.replace('{}', topic);
+    }
+    return introText + message;
+}
+
 const service = {
 
     analyze: function(text) {
 
         var result = {
-            hasReply: true,
+            hasReply: false,
             text: ''
         }
 
@@ -29,7 +38,7 @@ const service = {
 
         if (matchedTerm) {
             result.hasReply = true;
-            result.text = trendsMap[matchedTerm].url
+            result.text = buildMessage(matchedTerm, trendsMap[matchedTerm].url);
         }
 
         return result;
