@@ -1,3 +1,1 @@
-/**
- * Created by Aleh_Stsiapanau on 4/8/2017.
- */
+const bot = require('./twitter-client')

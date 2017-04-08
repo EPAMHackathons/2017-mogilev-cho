@@ -1,38 +1,17 @@
-const { Composer, Markup } = require('micro-bot')
-
+const Telegraf = require('telegraf')
 const msg = require('./messages')
 
 const bot = require('./service/bot-engine')
 
-const twit = require('./service/twitter-client')
+const app = new Telegraf('375464631:AAFxcfWfIamyDI9zlOI1ZHqsYNkVeUsCxrM')
 
-const app = new Composer()
+app.command('start', (ctx) => {
+    console.log('start', ctx.from)
+    ctx.reply('Welcome!')
+})
 
-app.command('start', (ctx) =>
-
-    ctx.replyWithMarkdown(msg.start, Markup
-
-        .keyboard([['так', 'ишо']])
-
-        .resize()
-
-        .extra()
-
-    )
-
-)
-
-app.command('help', ctx => ctx.replyWithMarkdown(msg.help))
-
-app.on('message', (ctx) => {
-    ctx.replyWithMarkdown('че?\n' + ctx.message)
-});
+app.hears('hi', (ctx) => ctx.reply('Hey there!'))
 
 app.on('sticker', (ctx) => ctx.reply('👍'))
 
-app.hears(/(так)|(ишо)/i, ctx => {
-    console.log()
-    ctx.replyWithMarkdown("ну так-и да")
-});
-
-module.exports = app
+app.startPolling()
