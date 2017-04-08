@@ -1,4 +1,5 @@
 const twit = require('./twitter-client')
+const textMatcher = require('./terms-comparator')
 const msg = require('../messages')
 var _ = require('underscore');
 
@@ -33,7 +34,11 @@ const service = {
         }
 
         var matchedTerm = _.find(_.allKeys(trendsMap), function(term) {
-            return text.includes(term);
+            var containsTerm = text.includes(term);
+            if (!containsTerm) {
+                containsTerm = textMatcher.hasMatchesInText(text,term);
+            }
+            return containsTerm;
         });
 
         if (matchedTerm) {
