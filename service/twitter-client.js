@@ -1,4 +1,3 @@
-//var Twitter = require('twitter-node-client').Twitter;
 var OAuth = require('oauth');
 
 var oauth = new OAuth.OAuth(
@@ -14,7 +13,7 @@ var oauth = new OAuth.OAuth(
 var twitter = {
     getTrends: function(callback) {
         oauth.get(
-            'https://api.twitter.com/1.1/trends/place.json?id=23424977',
+            'https://api.twitter.com/1.1/trends/place.json?id=23424936',
             '22006510-BspwJ9QSOoLMHE0QRbveplcaIm0sEcxYvrdte5Ltr', //test user token
             'tf0ARtrwT8yLviXWHpEb63mhFvGxCV7OejmbGiV0Ma0x6', //test user secret
             function (e, data, res){

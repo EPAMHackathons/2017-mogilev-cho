@@ -4,14 +4,12 @@
   "description": "\"# 2017-mogilev-cho\" \r \"# 2017-mogilev-cho\"",
   "main": "index.js",
   "dependencies": {
-    "http": "0.0.0",
     "oauth": "^0.9.15",
     "telegraf": "^3.6.7",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "telegraf": "^3.6.7",
-    "twitter-node-client": "0.0.6"
+    "telegraf": "^3.6.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
