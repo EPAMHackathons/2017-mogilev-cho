@@ -14,21 +14,27 @@ var twitter = {
     getTrends: function(callback) {
         oauth.get(
             'https://api.twitter.com/1.1/trends/place.json?id=23424936',
-            '22006510-BspwJ9QSOoLMHE0QRbveplcaIm0sEcxYvrdte5Ltr', //test user token
-            'tf0ARtrwT8yLviXWHpEb63mhFvGxCV7OejmbGiV0Ma0x6', //test user secret
-            function (e, data, res){
+            '22006510-gJs9qdtPiUSrsbLFz5P3zzQ7fIbpXeRhEN0vHTOwi', //test user token
+            'ofkkIgSgLWoSL0VGpq9pzRDtuidtVEhrsyHlDsXmOwHL3', //test user secret
+            function(e, data, res) {
                 if (e) console.error(e);
                 callback(JSON.parse(data));
             });
     },
     searchTerm: function(queryText, callback) {
         oauth.get(
-            'https://api.twitter.com/1.1/search/tweets.json?q=' + queryText,
-            '22006510-BspwJ9QSOoLMHE0QRbveplcaIm0sEcxYvrdte5Ltr', //test user token
-            'tf0ARtrwT8yLviXWHpEb63mhFvGxCV7OejmbGiV0Ma0x6', //test user secret
-            function (e, data, res){
-                if (e) console.error(e);
-                callback(JSON.parse(data));
+            'https://api.twitter.com/1.1/search/tweets.json?q=' + encodeURIComponent(queryText),
+            '22006510-gJs9qdtPiUSrsbLFz5P3zzQ7fIbpXeRhEN0vHTOwi', //test user token
+            'ofkkIgSgLWoSL0VGpq9pzRDtuidtVEhrsyHlDsXmOwHL3', //test user secret
+            function(e, data, res) {
+                if (e) {
+                    console.error(e);
+                    console.log(data);
+                    callback(null);
+                } else {
+                    console.log(data);
+                    callback(JSON.parse(data));
+                }
             });
     }
 }
